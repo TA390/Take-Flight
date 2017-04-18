@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TakeFlight
 //
-//  Created by Taha Abdalla on 06/01/2017.
+//  Created by TA on 06/01/2017.
 //  Copyright © 2017 Vanilla Studios. All rights reserved.
 //
 

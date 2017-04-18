@@ -2,54 +2,76 @@
 //  GameViewController.swift
 //  TakeFlight
 //
-//  Created by Taha Abdalla on 06/01/2017.
+//  Created by TA on 06/01/2017.
 //  Copyright © 2017 Vanilla Studios. All rights reserved.
 //
 
-import UIKit
+/****************************************************************************************/
+
 import SpriteKit
-import GameplayKit
+import UIKit
+
+/****************************************************************************************/
 
 class GameViewController: UIViewController {
-
+    
+    /************************************************************************************/
+    /*
+     Load MenuScene
+     */
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        super.viewDidLoad();
         
         if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
             
+            loadScene(MenuScene(fileNamed: "MenuScene")!, view)
+            
+            view.showsFPS = false
+            view.showsPhysics = false
+            view.showsNodeCount = false
             view.ignoresSiblingOrder = true
             
-            view.showsFPS = true
-            view.showsNodeCount = true
         }
+        
     }
-
+    
+    /************************************************************************************/
+    /*
+     Disable screen rotation
+     */
     override var shouldAutorotate: Bool {
-        return true
+        
+        return false
+        
     }
-
+    
+    /************************************************************************************/
+    /*
+     Enable portrait mode only
+     */
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
+        
+        return .portrait
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-
+    
+    /************************************************************************************/
+    /*
+     Remove the status bar
+     */
     override var prefersStatusBarHidden: Bool {
+        
         return true
+        
     }
+    
+    /************************************************************************************/
+    
+    override func didReceiveMemoryWarning() {
+        
+        super.didReceiveMemoryWarning()
+        
+    }
+    
 }
